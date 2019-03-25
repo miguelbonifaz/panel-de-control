@@ -1,0 +1,13 @@
+
+p {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+body {
+	padding: 30px;
+}
+.container {
+	max-width: 1140px;
+	margin-right: auto;
+	margin-left: auto;
+}

@@ -1,0 +1,122 @@
+@import'tailwind.min';
+:root {
+	--color-gray:#474747;
+	--color-gray-suave: #F9F9F9;
+	--color-border: #D2D2D2;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #FDFDFD;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+	color: var(--color-gray);
+}
+.button__crearUsuario {
+	border-bottom: 2px solid var(--color-gray);
+	text-decoration: none;
+	color: var(--color-gray);
+	font-weight: bold;
+	padding: 5px 10px;
+}
+.table__users {
+	thead {
+		border-bottom: 1px solid var(--color-border);
+	}
+	width: 100%;
+	th {
+		font-size: 16px;
+	}
+	td {
+		font-size: 14px;
+	}
+	td,
+	th {
+		color: var(--color-gray);
+		padding: 18px;
+	}
+	tbody > tr:nth-child(even) {
+		background: var(--color-gray-suave);
+	}
+}
+.gc-13 {
+	@media screen and(min-width:992px) {
+		grid-column: 1 / 3;
+	}
+}
+.table__users__acciones {
+	a {
+		text-decoration: none;
+		margin-right: 12px;
+	}
+}
+.subtitulo {
+	border:1px solid var(--color-border);
+	padding: 5px 10px;
+	border-radius: 4px;
+	color:var(--color-gray);
+	text-decoration: none;
+}
+.form__createUsers-grid {
+	padding: 16px;
+	display: grid;
+	grid-gap: 22px;
+	@media screen and(min-width:992px) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+.form__createUsers__inputContent {
+	display: flex;
+	flex-direction: column;
+}
+.form__createUsers__input {
+	color: var(--color-gray);
+	font-size: 14px;
+	background: var(--color-gray-suave);
+	border-radius: 4px;
+	padding: 15px;
+	border:1px solid transparent;
+	transition: border ease .5s;
+	&:focus {
+		border:1px solid var(--color-border);
+		background: white;
+		outline-color: transparent;
+	}
+}
+.form__createUsers__label {
+	margin-bottom: 5px;
+	color: var(--color-gray);
+	font-weight: bold;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.form__CreateUsers__submit {
+	background: var(--color-gray);
+	color:white;
+	padding: 10px 14px;
+	font-size: 16px;
+	text-transform: uppercase;
+	border-radius: 4px;
+}
+.profesion {
+	margin: 16px 0;
+	&:after {
+		content: "";
+		width:90px;
+		height: 2px;
+		background: var(--color-gray);
+		display: flex;
+		margin-top: 5px;
+		margin-right: auto;
+		margin-left: auto;
+
+	}
+}
+.user__email {
+	font-size: 13px;
+	font-style: italic;
+}
