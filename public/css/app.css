@@ -28626,11 +28626,35 @@ p {
 }
 
 .button__crearUsuario {
-  border-bottom: 2px solid var(--color-gray);
   text-decoration: none;
   color: var(--color-gray);
   font-weight: bold;
   padding: 5px 10px;
+  display: inline-block;
+}
+
+.button__crearUsuario:after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: var(--color-gray);
+  margin-right: auto;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: width .3s ease;
+  transition: width .3s ease;
+}
+
+.button__crearUsuario:hover:after {
+  width: 160px;
 }
 
 .table__users {
@@ -28754,5 +28778,41 @@ p {
 .user__email {
   font-size: 13px;
   font-style: italic;
+}
+
+.logo {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo:after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: var(--color-gray);
+  margin-right: auto;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: width .3s ease;
+  transition: width .3s ease;
+}
+
+.logo:hover:after {
+  width: 445px;
+}
+
+.create__errorField {
+  color: #ff5151;
+  font-size: 13px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 

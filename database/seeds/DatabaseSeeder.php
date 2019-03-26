@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 		DB::table('users')->truncate();
 		DB::table('profesiones')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
-        $this->call(Profesiones::class);
+        $this->call(ProfesionesSeeder::class);
         $this->call(Users::class);
     }
 }

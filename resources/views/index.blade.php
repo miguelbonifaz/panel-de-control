@@ -2,8 +2,10 @@
 @section('content')
 	<div class="flex">
 		<div class="w-full">
-			<h1 class="text-base lg:text-3xl text-center mt-16">MI PRIMER CRUD CON LARAVEL</h1>
-			<div class="text-center mt-5">
+			<h1 class="text-base lg:text-3xl text-center mt-16">
+				<a class="logo" href="./">MI PRIMER CRUD CON LARAVEL</a>
+			</h1>
+			<div class="text-center">
 				<a href="{{route('crear-usuario')}}" class="text-xs lg:text-base mt-5 button__crearUsuario">
 					CREAR USUARIO
 					<img class="ml-2" src="{{asset('svg/astronauta.svg')}}" width="14" alt="astronauta">
@@ -18,6 +20,7 @@
 					<th class="text-left">NOMBRES</th>
 					<th class="text-left">EMAIL</th>
 					<th class="text-left">PROFESIÓN</th>
+					<th class="text-left">¿PORQUE TE APASIONA ESTA CARRERA?</th>
 					<th class="text-left">ACCIONES</th>
 				</tr>
 			</thead>
@@ -27,6 +30,7 @@
 						<td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
 						<td> {{$user->profesion->profesion}} </td>
+						<td> {{substr($user->asunto,0,30)}}.....</td>
 						<td>
 							<div class="table__users__acciones">
 								<a href="">
