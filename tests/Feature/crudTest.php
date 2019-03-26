@@ -19,19 +19,18 @@ class crudTest extends TestCase
      */
 	public function home() {
 		factory(Profesiones::class, 15)->create();
-		$user = factory(User::class)->create([
-			'password' => bcrypt('126126'),
-		]);
+		$user = factory(User::class)->create();
 		$this->get('/')
-		->assertStatus(200);
-		
-		$this->assertCredentials([
-			'name' => $user->name,
-			'email' => $user->email,
-			'password' => '126126'
-		]);
+		->assertStatus(200)
+		->assertSee($user->name);
 	}
 	/** @test */
+	public function formulario_donde_se_crea_un_usuario() {
+		$this->withoutExceptionHandling();
+		$this->get('/crear-usuario')
+		->assertStatus(200)
+		->assertSee('CREACIÓN DE USUARIO');
+	} 
 	public function registrado_un_usuario() {
 		$profesion = factory(Profesiones::class)->create();
 		$this->post('crear-usuario',[
@@ -43,5 +42,66 @@ class crudTest extends TestCase
 		->assertRedirect('/');
 
 		$this->assertEquals(1, User::count());
+	}
+
+	/** @test */
+	public function detalles_de_un_usuario() {
+		$profesion = factory(Profesiones::class)->create();
+		$user = factory(User::class)->create([
+			'profesion_id' => $profesion->id
+		]);
+		$this->get("usuario/{$user->id}")
+		->assertStatus(200)
+		->assertSee($user->name);
+	}
+
+	/** @test */
+	public function mostrando_informacion_cuando_se_edita_un_usuario() {
+		$profesion = factory(Profesiones::class)->create();
+		$user = factory(User::class)->create([
+			'profesion_id' => $profesion->id
+		]);
+		$this->get("usuario/$user->id/edit")
+		->assertStatus(200)
+		->assertSee($user->name)
+		->assertSee($user->email)
+		->assertSee($user->asunto);
+	}
+
+	/** @test */
+	public function guardando_informacion_cuando_se_edita_un_usario() {
+		$this->withoutExceptionHandling();
+		$profesion = factory(Profesiones::class)->create();
+		$profesion2 = factory(Profesiones::class)->create();
+		
+		$user = factory(User::class)->create([
+			'profesion_id' => $profesion->id
+		]);
+		$this->put("/usuario/$user->id/edit", [
+			'name' => 'Miguel Bonifaz',
+			'email' => 'miguelbonifaz126@gmail.com',
+			'profesiones' => $profesion2->id,
+			'asunto' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi praesentium deserunt harum! Eius, cumque'
+		])
+		->assertRedirect('/');
+
+		$this->assertDatabaseHas('users', [
+			'name' => 'Miguel Bonifaz',
+			'email' => 'miguelbonifaz126@gmail.com',
+			'profesion_id' => $profesion2->id,
+			'asunto' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi praesentium deserunt harum! Eius, cumque'
+		]);
+	}
+
+	/** @test */
+	public function eliminando_un_usuario() {
+		$profesion = factory(Profesiones::class)->create();
+		$user = factory(User::class)->create([
+			'profesion_id' => $profesion->id
+		]);
+		$this->delete("/usuario/$user->id")
+		->assertRedirect('/');
+
+		$this->assertEquals(0, User::count());
 	}
 }

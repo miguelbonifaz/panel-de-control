@@ -65,6 +65,7 @@ p {
 	}
 }
 .table__users__acciones {
+	display: flex;
 	a {
 		text-decoration: none;
 		margin-right: 12px;
@@ -161,4 +162,19 @@ p {
 	font-size: 13px;
 	margin-top: 10px;
 	font-weight: bold;
+}
+
+.page-not-found {
+	border:20px solid var(--color-gray);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	text-align: center;
+	&__back {
+		margin-top: 10px;
+		color:var(--color-gray);
+	}
 }

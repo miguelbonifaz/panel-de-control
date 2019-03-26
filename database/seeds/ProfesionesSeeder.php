@@ -22,7 +22,7 @@ class ProfesionesSeeder extends Seeder
 			'profesion' => 'DevOps'
 		]);
         Profesiones::create([
-			'profesion' => 'Diseñod Web'
+			'profesion' => 'Diseño Web'
 		]);
         Profesiones::create([
 			'profesion' => 'Javascript Developer'

@@ -3,7 +3,7 @@
 	<div class="flex">
 		<div class="w-full">
 			<h1 class="text-base lg:text-3xl text-center mt-16">
-				<a class="logo" href="./">MI PRIMER CRUD CON LARAVEL</a>
+				<a class="logo" href="{{route('home')}}">MI PRIMER CRUD CON LARAVEL</a>
 			</h1>
 			<div class="text-center">
 				<a href="{{route('crear-usuario')}}" class="text-xs lg:text-base mt-5 button__crearUsuario">
@@ -30,18 +30,22 @@
 						<td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
 						<td> {{$user->profesion->profesion}} </td>
-						<td> {{substr($user->asunto,0,30)}}.....</td>
+						<td> {{substr($user->asunto,0,50)}}.....</td>
 						<td>
 							<div class="table__users__acciones">
-								<a href="">
+								<a href="{{route('user-details-edit', $user)}}">
 									<img src="{{asset('svg/user-edit.svg')}}" alt="" width="18">
 								</a>
-								<a href="">
+								<a href="{{route('user-details', $user)}}">
 									<img src="{{asset('svg/arrow-circle.svg')}}" alt="" width="16">
 								</a>
-								<a href="">
-									<img src="{{asset('svg/trash.svg')}}" alt="" width="15">
-								</a>
+								<form action="{{route('user-destroy', $user)}}" method="POST">
+									{{method_field('DELETE')}}
+									{{ csrf_field() }}
+									<button type="submit">
+										<img src="{{asset('svg/trash.svg')}}" alt="" width="15">
+									</button>
+								</form>
 							</div>
 						</td>
 					</tr>

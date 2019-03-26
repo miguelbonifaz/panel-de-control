@@ -28689,6 +28689,12 @@ p {
   }
 }
 
+.table__users__acciones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .table__users__acciones a {
   text-decoration: none;
   margin-right: 12px;
@@ -28814,5 +28820,30 @@ p {
   font-size: 13px;
   margin-top: 10px;
   font-weight: bold;
+}
+
+.page-not-found {
+  border: 20px solid var(--color-gray);
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.page-not-found__back {
+  margin-top: 10px;
+  color: var(--color-gray);
 }
 
