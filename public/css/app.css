@@ -28657,7 +28657,12 @@ p {
   width: 160px;
 }
 
+.table__responsive {
+  overflow: scroll;
+}
+
 .table__users {
+  white-space: nowrap;
   width: 100%;
 }
 

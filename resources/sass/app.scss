@@ -39,7 +39,11 @@ p {
 		width: 160px;
 	}
 }
+.table__responsive {
+	overflow: scroll;
+}
 .table__users {
+	white-space: nowrap;
 	thead {
 		border-bottom: 1px solid var(--color-border);
 	}

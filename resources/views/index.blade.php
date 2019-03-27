@@ -14,43 +14,45 @@
 		</div>
 	</div>
 	<div class="container mt-16 mx-auto">
-		<table class="table-auto table__users">
-			<thead>
-				<tr>
-					<th class="text-left">NOMBRES</th>
-					<th class="text-left">EMAIL</th>
-					<th class="text-left">PROFESIÓN</th>
-					<th class="text-left">¿PORQUE TE APASIONA ESTA CARRERA?</th>
-					<th class="text-left">ACCIONES</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach ($users as $user)
+		<div class="table__responsive">
+			<table class="table-auto table__users">
+				<thead>
 					<tr>
-						<td>{{$user->name}}</td>
-						<td>{{$user->email}}</td>
-						<td> {{$user->profesion->profesion}} </td>
-						<td> {{substr($user->asunto,0,50)}}.....</td>
-						<td>
-							<div class="table__users__acciones">
-								<a href="{{route('user-details-edit', $user)}}">
-									<img src="{{asset('svg/user-edit.svg')}}" alt="" width="18">
-								</a>
-								<a href="{{route('user-details', $user)}}">
-									<img src="{{asset('svg/arrow-circle.svg')}}" alt="" width="16">
-								</a>
-								<form action="{{route('user-destroy', $user)}}" method="POST">
-									{{method_field('DELETE')}}
-									{{ csrf_field() }}
-									<button type="submit">
-										<img src="{{asset('svg/trash.svg')}}" alt="" width="15">
-									</button>
-								</form>
-							</div>
-						</td>
+						<th class="text-left">NOMBRES</th>
+						<th class="text-left">EMAIL</th>
+						<th class="text-left">PROFESIÓN</th>
+						<th class="text-left">¿PORQUE TE APASIONA ESTA CARRERA?</th>
+						<th class="text-left">ACCIONES</th>
 					</tr>
-				@endforeach
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					@foreach ($users as $user)
+						<tr>
+							<td>{{$user->name}}</td>
+							<td>{{$user->email}}</td>
+							<td> {{$user->profesion->profesion}} </td>
+							<td> {{substr($user->asunto,0,50)}}.....</td>
+							<td>
+								<div class="table__users__acciones">
+									<a href="{{route('user-details-edit', $user)}}">
+										<img src="{{asset('svg/user-edit.svg')}}" alt="" width="18">
+									</a>
+									<a href="{{route('user-details', $user)}}">
+										<img src="{{asset('svg/arrow-circle.svg')}}" alt="" width="16">
+									</a>
+									<form action="{{route('user-destroy', $user)}}" method="POST">
+										{{method_field('DELETE')}}
+										{{ csrf_field() }}
+										<button type="submit">
+											<img src="{{asset('svg/trash.svg')}}" alt="" width="15">
+										</button>
+									</form>
+								</div>
+							</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 	</div>
 @endsection
