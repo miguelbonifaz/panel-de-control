@@ -18,6 +18,11 @@
 	</select>
 	@include('partials.errorValidation', ['name' => 'profesiones'])
 </div>
+<div class="form__createUsers__inputContent">
+	<label class="form__createUsers__label" for="">Password</label>
+	<input name="password" class="form__createUsers__input shadow" type="password" placeholder="Ingresa tu contraseña" value="">
+	@include('partials.errorValidation', ['name' => 'password'])
+</div>
 <div class="form__createUsers__inputContent gc-13">
 	<label class="form__createUsers__label" for="">Cuentanos... ¿Porque te apasiona esta carrera?</label>
 	<textarea class="form__createUsers__input shadow" name="asunto" id="" cols="30" rows="10">{{$user->asunto ?? old('asunto')}}</textarea>
