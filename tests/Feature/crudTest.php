@@ -38,9 +38,10 @@ class crudTest extends TestCase
 		$this->post('crear-usuario',[
 			'name' => 'Miguel Bonifaz',
 			'email' => 'miguelbonifaz126@gmail.com',
-			'password' => '126126',
 			'profesiones' => $profesion->id,
-			'asunto' => 'test test test test test test test test test test test test test test test test test test test test '
+			'password' => '126126',
+			'twitter' => 'https://twitter.com/MBonifaz126',
+			'bio' => 'Este es la biografia'
 		])
 		->assertRedirect('/');
 		
@@ -48,6 +49,10 @@ class crudTest extends TestCase
 			'name' => 'Miguel Bonifaz',
 			'email' => 'miguelbonifaz126@gmail.com',
 			'password' => '126126'
+		]);
+		$this->assertDatabaseHas('user_profiles',[
+			'twitter' => 'https://twitter.com/MBonifaz126',
+			'bio' => 'Este es la biografia'
 		]);
 	}
 

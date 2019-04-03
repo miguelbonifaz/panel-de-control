@@ -23,9 +23,14 @@
 	<input name="password" class="form__createUsers__input shadow" type="password" placeholder="Ingresa tu contraseña" value="">
 	@include('partials.errorValidation', ['name' => 'password'])
 </div>
+<div class="form__createUsers__inputContent">
+	<label class="form__createUsers__label" for="">twitter</label>
+	<input name="twitter" class="form__createUsers__input shadow" type="text" placeholder="https://twitter.com/MBonifaz126" value="">
+	@include('partials.errorValidation', ['name' => 'twitter'])
+</div>
 <div class="form__createUsers__inputContent gc-13">
 	<label class="form__createUsers__label" for="">Cuentanos... ¿Porque te apasiona esta carrera?</label>
-	<textarea class="form__createUsers__input shadow" name="asunto" id="" cols="30" rows="10">{{$user->asunto ?? old('asunto')}}</textarea>
+	<textarea class="form__createUsers__input shadow" name="bio" id="" cols="30" rows="10">{{$user->asunto ?? old('asunto')}}</textarea>
 	@include('partials.errorValidation', ['name' => 'asunto'])
 </div>
 <div class="text-right gc-13">
